@@ -1,13 +1,14 @@
 package com.sar.steamaccountswitcher.ui.main
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.sar.steamaccountswitcher.R
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.sar.steamaccountswitcher.databinding.MainFragmentBinding
+import com.sar.steamaccountswitcher.ui.adapter.AccountAdapter
 
 class MainFragment : Fragment() {
 
@@ -21,12 +22,17 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-    }
+        val binding = MainFragmentBinding.inflate(inflater, container, false).apply {
+            viewModel = this@MainFragment.viewModel
+            lifecycleOwner = this@MainFragment
+            adapter = AccountAdapter(this@MainFragment.viewModel)
+        }
+        viewModel.profileUri.observe(viewLifecycleOwner) {
+            val intent = Intent(Intent.ACTION_VIEW, it)
+            startActivity(intent)
+        }
 
+        return binding.root
+    }
 }

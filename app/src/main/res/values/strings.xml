@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SteamAccountSwitcher</string>
+    <string name="ban_indicator">🛡</string>
 </resources>
