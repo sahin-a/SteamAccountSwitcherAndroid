@@ -1,13 +1,13 @@
-package com.sar.steamaccountswitcher.ui.main
+package com.sar.steamaccountswitcher.steam.ui.viewModel
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sar.steamaccountswitcher.steam.service.SteamAccountSwitcherService
-import com.sar.steamaccountswitcher.ui.listener.AccountListener
-import com.sar.steamaccountswitcher.ui.model.Account
+import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherService
+import com.sar.steamaccountswitcher.steam.domain.model.Account
+import com.sar.steamaccountswitcher.steam.ui.listener.AccountListener
 import kotlinx.coroutines.launch
 
 class MainViewModel(

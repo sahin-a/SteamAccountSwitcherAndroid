@@ -9,11 +9,11 @@
 
         <variable
             name="account"
-            type="com.sar.steamaccountswitcher.ui.model.Account" />
+            type="com.sar.steamaccountswitcher.steam.domain.model.Account" />
 
         <variable
             name="accountListener"
-            type="com.sar.steamaccountswitcher.ui.listener.AccountListener" />
+            type="com.sar.steamaccountswitcher.steam.ui.listener.AccountListener" />
     </data>
 
     <androidx.cardview.widget.CardView

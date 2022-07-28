@@ -7,11 +7,11 @@
 
         <variable
             name="viewModel"
-            type="com.sar.steamaccountswitcher.ui.main.MainViewModel" />
+            type="com.sar.steamaccountswitcher.steam.ui.viewModel.MainViewModel" />
 
         <variable
             name="adapter"
-            type="com.sar.steamaccountswitcher.ui.adapter.AccountAdapter" />
+            type="com.sar.steamaccountswitcher.steam.ui.adapter.AccountAdapter" />
 
         <import type="android.view.View" />
     </data>
@@ -20,7 +20,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.main.MainFragment">
+        tools:context=".steam.ui.view.MainFragment">
 
 
         <androidx.recyclerview.widget.RecyclerView

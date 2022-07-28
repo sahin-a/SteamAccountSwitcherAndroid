@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">SteamAccountSwitcher</string>
-    <string name="ban_indicator">🛡</string>
+    <string name="app_name" translatable="false">Steam Account Switcher</string>
+    <string name="ban_indicator" translatable="false">🛡</string>
+    <string name="action_show_settings">Settings</string>
+    <string name="sas_webapi_address">SteamAccountSwitcher WebAPI Address</string>
+    <string name="sas_webapi_address_summary">Establishes connection between app and server</string>
+    <string name="sas_webapi_address_preference_key" translatable="false">sas_webapi_address</string>
 </resources>
