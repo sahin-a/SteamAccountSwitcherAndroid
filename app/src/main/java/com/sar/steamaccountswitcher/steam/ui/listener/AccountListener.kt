@@ -1,7 +1,7 @@
-package com.sar.steamaccountswitcher.ui.listener
+package com.sar.steamaccountswitcher.steam.ui.listener
 
 import android.net.Uri
-import com.sar.steamaccountswitcher.ui.model.Account
+import com.sar.steamaccountswitcher.steam.domain.model.Account
 
 interface AccountListener {
     fun onAccountSelected(account: Account)

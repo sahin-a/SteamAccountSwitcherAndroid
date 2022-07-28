@@ -7,8 +7,8 @@ import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.sar.steamaccountswitcher.R
-import com.sar.steamaccountswitcher.ui.adapter.AccountAdapter
-import com.sar.steamaccountswitcher.ui.model.Account
+import com.sar.steamaccountswitcher.steam.domain.model.Account
+import com.sar.steamaccountswitcher.steam.ui.adapter.AccountAdapter
 
 @BindingAdapter("submitAccounts")
 fun submitAccounts(recyclerView: RecyclerView, items: List<Account>?) {

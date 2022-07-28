@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.ui.adapter
+package com.sar.steamaccountswitcher.steam.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.sar.steamaccountswitcher.BR
 import com.sar.steamaccountswitcher.R
-import com.sar.steamaccountswitcher.ui.listener.AccountListener
-import com.sar.steamaccountswitcher.ui.model.Account
+import com.sar.steamaccountswitcher.steam.domain.model.Account
+import com.sar.steamaccountswitcher.steam.ui.listener.AccountListener
 
 class AccountAdapter(private val listener: AccountListener) :
     RecyclerView.Adapter<AccountAdapter.ViewHolder>() {
