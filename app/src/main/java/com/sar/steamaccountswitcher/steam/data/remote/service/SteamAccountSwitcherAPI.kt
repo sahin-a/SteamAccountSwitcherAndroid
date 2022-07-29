@@ -21,8 +21,7 @@ interface SteamAccountSwitcherAPI {
 
 class SteamAccountSwitcherServiceImpl(
     private val apiClientFactory: SteamAccountSwitcherAPIFactory
-) :
-    SteamAccountSwitcherService {
+) : SteamAccountSwitcherService {
 
     override suspend fun getAccounts(): List<Account> = withContext(Dispatchers.IO) {
         try {
