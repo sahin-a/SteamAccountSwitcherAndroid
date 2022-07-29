@@ -4,27 +4,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.sar.steamaccountswitcher.R
 import com.sar.steamaccountswitcher.databinding.MainFragmentBinding
 import com.sar.steamaccountswitcher.steam.ui.adapter.AccountAdapter
 import com.sar.steamaccountswitcher.steam.ui.viewModel.MainViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         setHasOptionsMenu(true)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         val binding = MainFragmentBinding.inflate(inflater, container, false).apply {
             viewModel = this@MainFragment.viewModel
             lifecycleOwner = this@MainFragment
@@ -54,5 +49,9 @@ class MainFragment : Fragment() {
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    companion object {
+        fun newInstance() = MainFragment()
     }
 }

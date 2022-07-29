@@ -5,16 +5,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherService
 import com.sar.steamaccountswitcher.steam.domain.model.Account
+import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
 import com.sar.steamaccountswitcher.steam.ui.listener.AccountListener
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val steamService: SteamAccountSwitcherService = SteamAccountSwitcherService()
+    private val steamService: SteamAccountSwitcherService
 ) : ViewModel(), AccountListener {
     private val _accounts = MutableLiveData<List<Account>>()
-    val accounts: LiveData<List<Account>> get() = _accounts
+    val accounts: LiveData<List<Account>> = _accounts
 
     private val _profileUri = MutableLiveData<Uri>()
     val profileUri: LiveData<Uri> = _profileUri
@@ -26,13 +26,17 @@ class MainViewModel(
         loadAccounts()
     }
 
+    private fun toggleProgressBar(show: Boolean) {
+        _progressBar.value = show
+    }
+
     private fun loadAccounts() {
         viewModelScope.launch {
-            _progressBar.value = true
+            toggleProgressBar(true)
             steamService.getAccounts().let {
                 _accounts.value = it
             }
-            _progressBar.value = false
+            toggleProgressBar(false)
         }
     }
 
