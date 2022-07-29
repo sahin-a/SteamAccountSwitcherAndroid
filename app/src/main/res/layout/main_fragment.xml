@@ -22,27 +22,22 @@
         android:layout_height="match_parent"
         tools:context=".steam.ui.view.MainFragment">
 
-
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:setAdapter="@{adapter}"
-            app:submitAccounts="@{viewModel.accounts}"
-            tools:listitem="@layout/account_item">
+            app:setOnRefreshListener="@{viewModel}"
+            app:setRefreshingState="@{viewModel.isLoading}">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:setAdapter="@{adapter}"
+                app:submitAccounts="@{viewModel.accounts}"
+                tools:listitem="@layout/account_item" />
 
-        <ProgressBar
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:setVisibility="@{viewModel.progressBar}"
-            tools:visibility="visible" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

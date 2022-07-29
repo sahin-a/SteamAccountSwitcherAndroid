@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.sar.steamaccountswitcher.R
 import com.sar.steamaccountswitcher.steam.domain.model.Account
@@ -38,4 +39,20 @@ fun setAdapter(
     adapter?.let {
         recyclerView.adapter = it
     }
+}
+
+@BindingAdapter("setOnRefreshListener")
+fun setOnRefreshListener(
+    refreshLayout: SwipeRefreshLayout,
+    onRefreshListener: SwipeRefreshLayout.OnRefreshListener
+) {
+    refreshLayout.setOnRefreshListener(onRefreshListener)
+}
+
+@BindingAdapter("setRefreshingState")
+fun setRefreshingState(
+    refreshLayout: SwipeRefreshLayout,
+    isRefreshing: Boolean
+) {
+    refreshLayout.isRefreshing = isRefreshing
 }
