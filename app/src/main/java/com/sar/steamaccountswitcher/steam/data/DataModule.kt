@@ -1,22 +1,23 @@
 package com.sar.steamaccountswitcher.steam.data
 
-import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherAPI
+import androidx.preference.PreferenceManager
+import com.sar.steamaccountswitcher.R
+import com.sar.steamaccountswitcher.common.data.storage.SharedPreferencesDataSource
+import com.sar.steamaccountswitcher.steam.data.local.storage.WebAPIAddressStorage
+import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherAPIFactory
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherServiceImpl
 import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 val dataModule = module {
+    single { SharedPreferencesDataSource(PreferenceManager.getDefaultSharedPreferences(get())) }
+    single {
+        val key = androidContext().getString(R.string.sas_webapi_address_preference_key)
+        WebAPIAddressStorage(key, get())
+    }
     single<SteamAccountSwitcherService> {
-        val gsonConverterFactory = GsonConverterFactory.create()
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://localhost:9080")
-            .addConverterFactory(gsonConverterFactory)
-            .build()
-        val apiClient =
-            retrofit.create(SteamAccountSwitcherAPI::class.java)
-
-        SteamAccountSwitcherServiceImpl(apiClient)
+        val clientFactory = SteamAccountSwitcherAPIFactory(get())
+        SteamAccountSwitcherServiceImpl(clientFactory)
     }
 }

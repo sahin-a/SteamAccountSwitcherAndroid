@@ -19,12 +19,14 @@ interface SteamAccountSwitcherAPI {
     suspend fun login(dto: SwitcherDto)
 }
 
-class SteamAccountSwitcherServiceImpl(private val apiClient: SteamAccountSwitcherAPI) :
+class SteamAccountSwitcherServiceImpl(
+    private val apiClientFactory: SteamAccountSwitcherAPIFactory
+) :
     SteamAccountSwitcherService {
 
     override suspend fun getAccounts(): List<Account> = withContext(Dispatchers.IO) {
         try {
-            return@withContext apiClient.getAccounts().toAccounts()
+            return@withContext apiClientFactory.getClient().getAccounts().toAccounts()
         } catch (e: Exception) {
 
         }
@@ -34,7 +36,7 @@ class SteamAccountSwitcherServiceImpl(private val apiClient: SteamAccountSwitche
 
     override suspend fun login(accountName: String): Boolean = withContext(Dispatchers.IO) {
         try {
-            apiClient.login(SwitcherDto(accountName))
+            apiClientFactory.getClient().login(SwitcherDto(accountName))
             return@withContext true
         } catch (e: Exception) {
 
