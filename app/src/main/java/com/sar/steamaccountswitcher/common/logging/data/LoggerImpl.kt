@@ -1,7 +1,7 @@
-package com.sar.steamaccountswitcher.steam.data.logging
+package com.sar.steamaccountswitcher.common.logging.data
 
 import android.util.Log
-import com.sar.steamaccountswitcher.steam.domain.logging.Logger
+import com.sar.steamaccountswitcher.common.logging.domain.Logger
 
 class LoggerImpl : Logger {
 

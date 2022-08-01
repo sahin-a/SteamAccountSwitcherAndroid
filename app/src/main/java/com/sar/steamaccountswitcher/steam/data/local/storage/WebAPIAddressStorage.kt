@@ -1,7 +1,7 @@
 package com.sar.steamaccountswitcher.steam.data.local.storage
 
-import com.sar.steamaccountswitcher.common.data.storage.PreferencesStorage
-import com.sar.steamaccountswitcher.common.data.storage.SharedPreferencesDataSource
+import com.sar.steamaccountswitcher.common.storage.data.PreferencesStorage
+import com.sar.steamaccountswitcher.common.storage.data.SharedPreferencesDataSource
 
 class WebAPIAddressStorage(key: String, dataSource: SharedPreferencesDataSource) :
     PreferencesStorage<String>(

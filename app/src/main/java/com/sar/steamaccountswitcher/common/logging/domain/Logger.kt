@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.steam.domain.logging
+package com.sar.steamaccountswitcher.common.logging.domain
 
 interface Logger {
     fun i(tag: String, message: String)
