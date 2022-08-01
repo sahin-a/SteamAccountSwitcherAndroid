@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.steam.ui.view
+package com.sar.steamaccountswitcher.steam.ui.settings.view
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat

@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.common.data.storage
+package com.sar.steamaccountswitcher.common.storage.data
 
 interface Storage<T> {
     fun set(value: T)

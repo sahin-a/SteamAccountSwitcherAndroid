@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.common.data.storage
+package com.sar.steamaccountswitcher.common.storage.data
 
 import android.content.SharedPreferences
 import androidx.core.content.edit

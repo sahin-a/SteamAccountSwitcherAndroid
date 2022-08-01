@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.ui
+package com.sar.steamaccountswitcher.steam.ui
 
 import android.net.Uri
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
 import com.sar.steamaccountswitcher.R
 import com.sar.steamaccountswitcher.steam.domain.model.Account
-import com.sar.steamaccountswitcher.steam.ui.adapter.AccountAdapter
+import com.sar.steamaccountswitcher.steam.ui.switching.adapter.AccountAdapter
 
 @BindingAdapter("submitAccounts")
 fun submitAccounts(recyclerView: RecyclerView, items: List<Account>?) {

@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.steam.ui.viewModel
+package com.sar.steamaccountswitcher.steam.ui.switching.viewModel
 
 import android.net.Uri
 import androidx.lifecycle.LiveData
@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.sar.steamaccountswitcher.steam.domain.model.Account
 import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
-import com.sar.steamaccountswitcher.steam.ui.listener.AccountListener
+import com.sar.steamaccountswitcher.steam.ui.switching.listener.AccountListener
 import kotlinx.coroutines.launch
 
 class MainViewModel(
