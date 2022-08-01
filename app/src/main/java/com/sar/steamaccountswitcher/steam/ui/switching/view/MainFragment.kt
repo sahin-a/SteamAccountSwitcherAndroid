@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.steam.ui.view
+package com.sar.steamaccountswitcher.steam.ui.switching.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,8 +7,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sar.steamaccountswitcher.R
 import com.sar.steamaccountswitcher.databinding.MainFragmentBinding
-import com.sar.steamaccountswitcher.steam.ui.adapter.AccountAdapter
-import com.sar.steamaccountswitcher.steam.ui.viewModel.MainViewModel
+import com.sar.steamaccountswitcher.steam.ui.switching.adapter.AccountAdapter
+import com.sar.steamaccountswitcher.steam.ui.switching.viewModel.MainViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainFragment : Fragment() {

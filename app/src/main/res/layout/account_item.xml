@@ -13,7 +13,7 @@
 
         <variable
             name="accountListener"
-            type="com.sar.steamaccountswitcher.steam.ui.listener.AccountListener" />
+            type="com.sar.steamaccountswitcher.steam.ui.switching.listener.AccountListener" />
     </data>
 
     <androidx.cardview.widget.CardView

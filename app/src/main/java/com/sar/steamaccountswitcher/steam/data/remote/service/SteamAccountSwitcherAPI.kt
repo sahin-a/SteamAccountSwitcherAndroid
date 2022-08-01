@@ -1,6 +1,5 @@
 package com.sar.steamaccountswitcher.steam.data.remote.service
 
-import android.net.Uri
 import com.sar.steamaccountswitcher.steam.data.remote.service.dto.AccountDto
 import com.sar.steamaccountswitcher.steam.data.remote.service.dto.SwitcherDto
 import com.sar.steamaccountswitcher.steam.data.remote.service.dto.toAccounts
@@ -8,6 +7,7 @@ import com.sar.steamaccountswitcher.steam.domain.model.Account
 import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 
@@ -16,7 +16,7 @@ interface SteamAccountSwitcherAPI {
     suspend fun getAccounts(): List<AccountDto>
 
     @POST("api/Switcher")
-    suspend fun login(dto: SwitcherDto)
+    suspend fun login(@Body dto: SwitcherDto)
 }
 
 class SteamAccountSwitcherServiceImpl(
@@ -30,7 +30,7 @@ class SteamAccountSwitcherServiceImpl(
 
         }
 
-        return@withContext fallbackDemoData
+        return@withContext emptyList()
     }
 
     override suspend fun login(accountName: String): Boolean = withContext(Dispatchers.IO) {
@@ -43,23 +43,4 @@ class SteamAccountSwitcherServiceImpl(
 
         return@withContext false
     }
-
-    private val fallbackDemoData = listOf(
-        Account(
-            username = "Sahin der Boss",
-            accountName = "sahina",
-            level = 150,
-            isBanned = false,
-            Uri.parse("https://steamavatar.io/img/1477351919tzqFl.jpg"),
-            Uri.parse("https://steamcommunity.com/id/gabelogannewell")
-        ),
-        Account(
-            username = "Elias",
-            accountName = "botelias",
-            level = 5000,
-            isBanned = true,
-            Uri.parse("https://steamavatar.io/img/1477351913X9n5u.jpg"),
-            Uri.parse("https://steamcommunity.com/id/gabelogannewell")
-        )
-    )
 }
