@@ -7,12 +7,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.sar.steamaccountswitcher.steam.domain.model.Account
-import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
+import com.sar.steamaccountswitcher.steam.domain.service.SteamAccountSwitcherService
+import com.sar.steamaccountswitcher.steam.domain.useCase.GetAccountsWithDetailsUseCase
+import com.sar.steamaccountswitcher.steam.domain.useCase.SwitchAccountUseCase
 import com.sar.steamaccountswitcher.steam.ui.switching.listener.AccountListener
 import kotlinx.coroutines.launch
 
 class MainViewModel(
-    private val steamService: SteamAccountSwitcherService
+    private val switchAccountUseCase: SwitchAccountUseCase,
+    private val getAccountsWithDetailsUseCase: GetAccountsWithDetailsUseCase
 ) : ViewModel(), AccountListener, SwipeRefreshLayout.OnRefreshListener {
     private val _accounts = MutableLiveData<List<Account>>()
     val accounts: LiveData<List<Account>> = _accounts
@@ -34,7 +37,7 @@ class MainViewModel(
     private fun loadAccounts() {
         viewModelScope.launch {
             toggleLoadingIndicator(true)
-            steamService.getAccounts().let {
+            getAccountsWithDetailsUseCase.execute().let {
                 _accounts.value = it
             }
             toggleLoadingIndicator(false)
@@ -43,7 +46,7 @@ class MainViewModel(
 
     override fun onAccountSelected(account: Account) {
         viewModelScope.launch {
-            steamService.login(account.accountName)
+            switchAccountUseCase.execute(account.accountName)
         }
     }
 

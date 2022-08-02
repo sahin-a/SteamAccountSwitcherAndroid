@@ -6,7 +6,7 @@ import com.sar.steamaccountswitcher.common.storage.data.SharedPreferencesDataSou
 import com.sar.steamaccountswitcher.steam.data.local.storage.WebAPIAddressStorage
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherAPIFactory
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherServiceImpl
-import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
+import com.sar.steamaccountswitcher.steam.domain.service.SteamAccountSwitcherService
 import com.sar.steamaccountswitcher.steam.ui.switching.viewModel.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -29,7 +29,7 @@ private val domainModule = module {
 }
 
 private val presentationModule = module {
-    viewModel { MainViewModel(get()) }
+    viewModel { MainViewModel(get(), get()) }
 }
 
 val steamModule = dataModule + domainModule + presentationModule
