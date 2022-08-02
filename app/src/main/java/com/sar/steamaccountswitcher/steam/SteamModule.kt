@@ -7,6 +7,8 @@ import com.sar.steamaccountswitcher.steam.data.local.storage.WebAPIAddressStorag
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherAPIFactory
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherServiceImpl
 import com.sar.steamaccountswitcher.steam.domain.service.SteamAccountSwitcherService
+import com.sar.steamaccountswitcher.steam.domain.useCase.GetAccountsWithDetailsUseCase
+import com.sar.steamaccountswitcher.steam.domain.useCase.SwitchAccountUseCase
 import com.sar.steamaccountswitcher.steam.ui.switching.viewModel.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,6 +24,8 @@ private val dataModule = module {
         val clientFactory = SteamAccountSwitcherAPIFactory(get())
         SteamAccountSwitcherServiceImpl(clientFactory)
     }
+    single { SwitchAccountUseCase(get()) }
+    single { GetAccountsWithDetailsUseCase(get()) }
 }
 
 private val domainModule = module {
