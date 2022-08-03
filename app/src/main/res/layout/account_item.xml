@@ -90,6 +90,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:setVisibility="@{account.isLevelAvailable}"
                 tool:text="100" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

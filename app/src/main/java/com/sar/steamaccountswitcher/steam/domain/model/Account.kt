@@ -8,5 +8,6 @@ data class Account(
     val level: Long,
     val isBanned: Boolean,
     val avatar: Uri,
-    val profileUri: Uri
+    val profileUri: Uri,
+    val isLevelAvailable: Boolean = level >= 0
 )
