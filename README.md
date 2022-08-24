@@ -1,5 +1,4 @@
-# Steam Account Switcher Android (Work in Progress)
-Development started recently, still under heaaaavy construction! ⚠
+# Steam Account Switcher Android
 
 * [Steam Account Switcher WebAPI is required for the android app to work](https://github.com/sahin-a/SteamAccountSwitcher/tree/develop/SteamAccountManager)
 
