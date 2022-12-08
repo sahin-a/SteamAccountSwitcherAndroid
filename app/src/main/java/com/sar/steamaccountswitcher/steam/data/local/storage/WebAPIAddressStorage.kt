@@ -1,15 +1,13 @@
 package com.sar.steamaccountswitcher.steam.data.local.storage
 
-import com.sar.steamaccountswitcher.common.storage.data.PreferencesStorage
 import com.sar.steamaccountswitcher.common.storage.data.SharedPreferencesDataSource
 
-class WebAPIAddressStorage(key: String, dataSource: SharedPreferencesDataSource) :
-    PreferencesStorage<String>(
-        key,
-        dataSource
-    ) {
+class WebAPIAddressStorage(
+    private val key: String,
+    private val dataSource: SharedPreferencesDataSource
+) {
 
-    override fun set(value: String) = dataSource.set(key, value)
+    fun set(value: String) = dataSource.setString(key, value)
 
-    override fun get(defaultValue: String) = dataSource.get(key, defaultValue)
+    fun get(defaultValue: String) = dataSource.getString(key, defaultValue)
 }

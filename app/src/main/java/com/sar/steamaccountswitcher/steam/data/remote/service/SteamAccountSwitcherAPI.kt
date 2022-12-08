@@ -25,7 +25,9 @@ class SteamAccountSwitcherServiceImpl(
 
     override suspend fun getAccounts(): List<Account> = withContext(Dispatchers.IO) {
         try {
-            return@withContext apiClientFactory.getClient().getAccounts().toAccounts()
+            return@withContext apiClientFactory.getClient()
+                .getAccounts()
+                .toAccounts()
         } catch (e: Exception) {
 
         }
