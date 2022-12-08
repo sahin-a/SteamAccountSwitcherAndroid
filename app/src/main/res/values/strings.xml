@@ -4,6 +4,9 @@
     <string name="action_show_settings">Settings</string>
     <string name="sas_webapi_address">SteamAccountSwitcher WebAPI Address</string>
     <string name="sas_webapi_address_summary">Establishes connection between app and server</string>
-    <string name="sas_webapi_address_preference_key" translatable="false">sas_webapi_address</string>
+    <string name="sas_webapi_address_preference_key" translatable="false">sas_webapi_address_preference_key</string>
     <string name="settings_fragment_title">Settings</string>
+    <string name="sas_webapi_allow_self_signed_certs_preference_key" translatable="false">sas_webapi_allow_self_signed_certs_key</string>
+    <string name="sas_webapi_allow_self_signed_certs">Allow self signed certificates</string>
+    <string name="sas_webapi_allow_self_signed_certs_summary">Ignore the authenticity of certificates</string>
 </resources>

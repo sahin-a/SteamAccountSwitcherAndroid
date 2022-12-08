@@ -4,6 +4,7 @@ import androidx.preference.PreferenceManager
 import com.sar.steamaccountswitcher.R
 import com.sar.steamaccountswitcher.common.storage.data.SharedPreferencesDataSource
 import com.sar.steamaccountswitcher.steam.data.local.storage.WebAPIAddressStorage
+import com.sar.steamaccountswitcher.steam.data.local.storage.WebAPIAllowSelfSignedCertsStorage
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherAPIFactory
 import com.sar.steamaccountswitcher.steam.data.remote.service.SteamAccountSwitcherServiceImpl
 import com.sar.steamaccountswitcher.steam.domain.service.SteamAccountSwitcherService
@@ -20,8 +21,12 @@ private val dataModule = module {
         val key = androidContext().getString(R.string.sas_webapi_address_preference_key)
         WebAPIAddressStorage(key, get())
     }
+    single {
+        val key = androidContext().getString(R.string.sas_webapi_allow_self_signed_certs_preference_key)
+        WebAPIAllowSelfSignedCertsStorage(key, get())
+    }
     single<SteamAccountSwitcherService> {
-        val clientFactory = SteamAccountSwitcherAPIFactory(get())
+        val clientFactory = SteamAccountSwitcherAPIFactory(get(), get())
         SteamAccountSwitcherServiceImpl(clientFactory)
     }
     single { SwitchAccountUseCase(get()) }

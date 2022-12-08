@@ -4,4 +4,6 @@
     <string name="sas_webapi_address">SteamAccountSwitcher WebAPI Adresse</string>
     <string name="sas_webapi_address_summary">Kommunikation zwischen App und Server ermöglichen</string>
     <string name="settings_fragment_title">Einstellungen</string>
+    <string name="sas_webapi_allow_self_signed_certs">Erlaube selbst unterzeichnete Zertifikate</string>
+    <string name="sas_webapi_allow_self_signed_certs_summary">Ignoriere die Authentizität von Zertifikaten</string>
 </resources>
