@@ -1,4 +1,4 @@
-package com.sar.steamaccountswitcher.steam.domain.repository
+package com.sar.steamaccountswitcher.steam.domain.service
 
 import com.sar.steamaccountswitcher.steam.domain.model.Account
 

@@ -4,7 +4,7 @@ import com.sar.steamaccountswitcher.steam.data.remote.service.dto.AccountDto
 import com.sar.steamaccountswitcher.steam.data.remote.service.dto.SwitcherDto
 import com.sar.steamaccountswitcher.steam.data.remote.service.dto.toAccounts
 import com.sar.steamaccountswitcher.steam.domain.model.Account
-import com.sar.steamaccountswitcher.steam.domain.repository.SteamAccountSwitcherService
+import com.sar.steamaccountswitcher.steam.domain.service.SteamAccountSwitcherService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.http.Body
@@ -25,7 +25,9 @@ class SteamAccountSwitcherServiceImpl(
 
     override suspend fun getAccounts(): List<Account> = withContext(Dispatchers.IO) {
         try {
-            return@withContext apiClientFactory.getClient().getAccounts().toAccounts()
+            return@withContext apiClientFactory.getClient()
+                .getAccounts()
+                .toAccounts()
         } catch (e: Exception) {
 
         }

@@ -2,12 +2,12 @@ package com.sar.steamaccountswitcher.steam.data.local.storage
 
 import com.sar.steamaccountswitcher.common.storage.data.SharedPreferencesDataSource
 
-class WebAPIAddressStorage(
+class WebAPIAllowSelfSignedCertsStorage(
     private val key: String,
     private val dataSource: SharedPreferencesDataSource
 ) {
 
-    fun set(value: String) = dataSource.setString(key, value)
+    fun set(value: Boolean) = dataSource.setBool(key, value)
 
-    fun get(defaultValue: String) = dataSource.getString(key, defaultValue)
+    fun get(defaultValue: Boolean) = dataSource.getBool(key, defaultValue)
 }

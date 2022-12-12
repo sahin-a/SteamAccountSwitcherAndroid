@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <EditTextPreference
         app:key="@string/sas_webapi_address_preference_key"
         app:title="@string/sas_webapi_address"
         app:summary="@string/sas_webapi_address_summary" />
+
+    <SwitchPreference
+        app:key="@string/sas_webapi_allow_self_signed_certs_preference_key"
+        app:title="@string/sas_webapi_allow_self_signed_certs"
+        app:summary="@string/sas_webapi_allow_self_signed_certs_summary" />
+
 </PreferenceScreen>
